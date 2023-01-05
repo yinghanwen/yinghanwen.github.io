@@ -20,22 +20,21 @@
     var CONFIG = {"hostname":"yinghanwen-github-io.vercel.app","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="aiosqlite 是一个可以异步操作 SQL 的 Python 库, 可以用在 Nonebot2 插件 sqlite 读取数据上 如何使用 aiosqlite12async with aiosqlite.connect(&quot;test.db&quot;) as db:    cur &#x3D; await db.cursor() 这段代码的含义是：异步链接上数据库, cursor 是光标的意思，有">
+  <meta name="description" content="(project name) Contributing GuideFirst of all, thank you for your contribution to (project name)! This guide is designed to guide you to submit contributions to (project name) in a more standardized w">
 <meta property="og:type" content="article">
-<meta property="og:title" content="aiosqlite学习笔记">
-<meta property="og:url" content="https://yinghanwen-github-io.vercel.app/2023/01/03/aiosqlite%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="git 与 contribute 标准">
+<meta property="og:url" content="https://yinghanwen-github-io.vercel.app/2023/01/06/git%20%E4%B8%8E%20contribute%20%E6%A0%87%E5%87%86/index.html">
 <meta property="og:site_name" content="Bob&#39;s Blog">
-<meta property="og:description" content="aiosqlite 是一个可以异步操作 SQL 的 Python 库, 可以用在 Nonebot2 插件 sqlite 读取数据上 如何使用 aiosqlite12async with aiosqlite.connect(&quot;test.db&quot;) as db:    cur &#x3D; await db.cursor() 这段代码的含义是：异步链接上数据库, cursor 是光标的意思，有">
+<meta property="og:description" content="(project name) Contributing GuideFirst of all, thank you for your contribution to (project name)! This guide is designed to guide you to submit contributions to (project name) in a more standardized w">
 <meta property="og:locale">
-<meta property="article:published_time" content="2023-01-02T19:07:00.000Z">
-<meta property="article:modified_time" content="2023-01-02T19:29:18.846Z">
+<meta property="article:published_time" content="2023-01-05T23:21:10.000Z">
+<meta property="article:modified_time" content="2023-01-05T23:23:41.690Z">
 <meta property="article:author" content="Bob Ying">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="asyncio">
-<meta property="article:tag" content="sql">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="contribution">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://yinghanwen-github-io.vercel.app/2023/01/03/aiosqlite%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="https://yinghanwen-github-io.vercel.app/2023/01/06/git%20%E4%B8%8E%20contribute%20%E6%A0%87%E5%87%86/">
 
 
 <script id="page-configurations">
@@ -48,7 +47,7 @@
   };
 </script>
 
-  <title>aiosqlite学习笔记 | Bob's Blog</title>
+  <title>git 与 contribute 标准 | Bob's Blog</title>
   
 
 
@@ -154,7 +153,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
-    <link itemprop="mainEntityOfPage" href="https://yinghanwen-github-io.vercel.app/2023/01/03/aiosqlite%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://yinghanwen-github-io.vercel.app/2023/01/06/git%20%E4%B8%8E%20contribute%20%E6%A0%87%E5%87%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -167,7 +166,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          aiosqlite学习笔记
+          git 与 contribute 标准
         </h1>
 
         <div class="post-meta">
@@ -178,7 +177,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2023-01-03 03:07:00 / Modified: 03:29:18" itemprop="dateCreated datePublished" datetime="2023-01-03T03:07:00+08:00">2023-01-03</time>
+              <time title="Created: 2023-01-06 07:21:10 / Modified: 07:23:41" itemprop="dateCreated datePublished" datetime="2023-01-06T07:21:10+08:00">2023-01-06</time>
             </span>
 
           
@@ -192,35 +191,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>aiosqlite 是一个可以异步操作 SQL 的 Python 库, 可以用在 Nonebot2 插件 sqlite 读取数据上</p>
-<p>如何使用 aiosqlite<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">with</span> aiosqlite.connect(<span class="string">&quot;test.db&quot;</span>) <span class="keyword">as</span> db:</span><br><span class="line">    cur = <span class="keyword">await</span> db.cursor()</span><br></pre></td></tr></table></figure></p>
-<p>这段代码的含义是：异步链接上数据库, cursor 是光标的意思，有了 cursor 就可以操作数据库数据</p>
-<hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute()</span><br></pre></td></tr></table></figure>
-<p>execute() 函数可以使用 SQL 语句</p>
-<hr>
-<p>接下来我们来学习 SQL 语句<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> aaa</span><br></pre></td></tr></table></figure></p>
-<p>这段代码的含义是：从 aaa 中读取信息</p>
-<hr>
-<p>我们来把 python 和 SQL 结合起来<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute(<span class="string">&#x27;SELECT xp, coins FROM users WHERE uid=?&#x27;</span>, (uid,))</span><br></pre></td></tr></table></figure></p>
-<p>这段代码的含义是：从 <code>users</code> Table 中读取数据 <code>xp</code> 和 <code>coins</code>, 但是此时我们不知道 uid 是什么，所以使用 <code>WHERE uid = ?</code>，后面加上 <code>(uid,)</code>来给 SQL 语句内的 uid 赋值 </p>
-<hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute(<span class="string">&#x27;UPDATE users SET xp=?, coins=?, WHERE uid=?&#x27;</span>, (xp, coins, uid))</span><br></pre></td></tr></table></figure>
-<p>这段代码的含义是：更新 <code>users</code> 的数据</p>
-<hr>
-<p>一些最重要的 SQL 命令</p>
-<pre><code>SELECT - 从数据库中提取数据
-UPDATE - 更新数据库中的数据
-DELETE - 从数据库中删除数据
-INSERT INTO - 向数据库中插入新数据
-CREATE DATABASE - 创建新数据库
-ALTER DATABASE - 修改数据库
-CREATE TABLE - 创建新表
-ALTER TABLE - 变更（改变）数据库表
-DROP TABLE - 删除表
-CREATE INDEX - 创建索引（搜索键）
-DROP INDEX - 删除索引
-</code></pre>
+        <h1 id="project-name-Contributing-Guide"><a href="#project-name-Contributing-Guide" class="headerlink" title="(project name) Contributing Guide"></a>(project name) Contributing Guide</h1><p>First of all, thank you for your contribution to (project name)!</p>
+<p>This guide is designed to guide you to submit contributions to (project name) in a more standardized way, please read it carefully.</p>
+<h2 id="Submit-Issue"><a href="#Submit-Issue" class="headerlink" title="Submit Issue"></a>Submit Issue</h2><p>Before submitting an Issue, we recommend that you check <a href="">FAQ</a> and <a href="">Existing Issues</a> to prevent duplicate submissions.</p>
+<h3 id="Reporting-Issues-Bugs-and-Bugs"><a href="#Reporting-Issues-Bugs-and-Bugs" class="headerlink" title="Reporting Issues, Bugs and Bugs"></a>Reporting Issues, Bugs and Bugs</h3><p>(project name) is still a project under development that is not stable enough. If you find a problem during use and believe it is caused by (project name), please submit an Issue.</p>
+<h3 id="Suggestions"><a href="#Suggestions" class="headerlink" title="Suggestions"></a>Suggestions</h3><p>(project name) has not yet entered the official version, welcome to propose new features to be added in the Issue.</p>
+<p>In order for developers to better understand your intentions, please carefully describe the features you need, and if possible, propose a solution that you think is feasible.</p>
+<h2 id="Pull-Request"><a href="#Pull-Request" class="headerlink" title="Pull Request"></a>Pull Request</h2><h3 id="Commit-specification"><a href="#Commit-specification" class="headerlink" title="Commit specification"></a>Commit specification</h3><p>Please make sure that each of your commits can clearly describe its intent, and try to have only one intent for a commit</p>
+<p>The commit message format is as follows:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>type (required)</strong></p>
+<p>The category used to describe git commits, only the following identities are allowed.</p>
+<p>feat: new function (feature)</p>
+<p>fix/to: Fix bugs, which can be bugs discovered by QA, or bugs discovered by R&amp;D itself.</p>
+<p>fix: generate a diff and automatically fix this issue. Suitable for one commit to directly fix the problem to: only generate diff and not automatically fix the problem. Good for multiple commits. Use fix when submitting final fixes</p>
+<p>docs: documentation</p>
+<p>style: format (changes that do not affect code operation)</p>
+<p>refactor: refactoring (that is, not a new feature, nor a code change to modify a bug)</p>
+<p>perf: optimization related, such as improving performance and experience</p>
+<p>test: add test</p>
+<p>chore: changes to the build process or auxiliary tools</p>
+<p>revert: Roll back to the previous version</p>
+<p>merge: code merge</p>
+<p>sync: Synchronize bugs on the mainline or branch</p>
+<p><strong>scope (optional)</strong></p>
+<p>Scope is used to illustrate the scope of commit influence, such as data layer, control layer, view layer, etc., depending on the project.</p>
+<h3 id="Workflow-Overview"><a href="#Workflow-Overview" class="headerlink" title="Workflow Overview"></a>Workflow Overview</h3><p>The <code>master</code> branch is the development branch of (project name). In any case, please do not modify the <code>master</code> branch directly, but create a Pull Request with the target branch of <code>(project name):master</code> to submit the modification.</p>
+<p>If you are not a member of (project name) Developers, you can initiate a Pull Request to the <code>master</code> branch of this repository after forking this repository, and follow the commit message specification mentioned earlier to create a commit. We will merge your contribution into the main branch through squash merge after the code review is passed.</p>
+
     </div>
 
     
@@ -229,9 +227,8 @@ DROP INDEX - 删除索引
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/python/" rel="tag"># python</a>
-              <a href="/tags/asyncio/" rel="tag"># asyncio</a>
-              <a href="/tags/sql/" rel="tag"># sql</a>
+              <a href="/tags/git/" rel="tag"># git</a>
+              <a href="/tags/contribution/" rel="tag"># contribution</a>
           </div>
 
         
@@ -240,13 +237,10 @@ DROP INDEX - 删除索引
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/01/03/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/" rel="prev" title="自我介绍">
-      <i class="fa fa-chevron-left"></i> 自我介绍
+    <a href="/2023/01/04/%E6%88%91%E7%9A%84%E4%B9%A6%E5%8D%95/" rel="prev" title="我的书单">
+      <i class="fa fa-chevron-left"></i> 我的书单
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2023/01/04/%E6%88%91%E7%9A%84%E4%B9%A6%E5%8D%95/" rel="next" title="我的书单">
-      我的书单 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -305,6 +299,7 @@ DROP INDEX - 删除索引
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-name-Contributing-Guide"><span class="nav-number">1.</span> <span class="nav-text">(project name) Contributing Guide</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Submit-Issue"><span class="nav-number">1.1.</span> <span class="nav-text">Submit Issue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reporting-Issues-Bugs-and-Bugs"><span class="nav-number">1.1.1.</span> <span class="nav-text">Reporting Issues, Bugs and Bugs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Suggestions"><span class="nav-number">1.1.2.</span> <span class="nav-text">Suggestions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pull-Request"><span class="nav-number">1.2.</span> <span class="nav-text">Pull Request</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Commit-specification"><span class="nav-number">1.2.1.</span> <span class="nav-text">Commit specification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Workflow-Overview"><span class="nav-number">1.2.2.</span> <span class="nav-text">Workflow Overview</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
