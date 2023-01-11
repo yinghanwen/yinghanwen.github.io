@@ -24,7 +24,7 @@
 
   
 
-  <title>aiosqlite学习笔记 | Bob&#39;s Blog</title>
+  <title>Bob&#39;s Blog</title>
 
   
 
@@ -47,7 +47,7 @@
   <div class="root-container">
     
 <!-- header container -->
-<header class="header-container post">
+<header class="header-container">
   
     <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
   
@@ -97,115 +97,64 @@
 
   
   
-    <div class="header-content">
-      <div class="post-text layout-block">
-        <div class="layout-margin">
-          <h1 class="title-wrap">aiosqlite学习笔记</h1>
-          <h2 class="title-sub-wrap">
-            <strong>Bob Ying</strong>
-            <span>发布于</span>
-            <time  class="article-date" datetime="2023-01-02T19:07:00.000Z" itemprop="datePublished">2023-01-03</time>
-          </h2>
-          
-          
-          <ul class="wrap-list dark">
-  
-</ul>
-          <ul class="wrap-list dark">
-  
-    <li><a href="/tags/python/">🏷️ python</a></li>
-  
-    <li><a href="/tags/asyncio/">🏷️ asyncio</a></li>
-  
-    <li><a href="/tags/sql/">🏷️ sql</a></li>
-  
-</ul>
-        </div>
-      </div>
-    </div>
-  
 
   
+  
+    <div class="header-content">
+      <div class="post-text layout-block layout-padding">
+        <h1 class="title-wrap"></h1>
+        
+      </div>
+    </div>
   
   
 </header>
 
-    <!-- 文章 -->
+    <!-- 分页(其他自定义页面) -->
 
-<!-- 文章内容 -->
+<!-- 自定义页面 -->
+
 <div class="body-container">
   <article class="content-container layout-block post-container">
     <div class="article-info">
       
-      
-      
-      
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>aiosqlite 是一个可以异步操作 SQL 的 Python 库, 可以用在 Nonebot2 插件 sqlite 读取数据上</p>
-<p>如何使用 aiosqlite<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">with</span> aiosqlite.connect(<span class="string">&quot;test.db&quot;</span>) <span class="keyword">as</span> db:</span><br><span class="line">    cur = <span class="keyword">await</span> db.cursor()</span><br></pre></td></tr></table></figure></p>
-<p>这段代码的含义是：异步链接上数据库, cursor 是光标的意思，有了 cursor 就可以操作数据库数据</p>
-<hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute()</span><br></pre></td></tr></table></figure>
-<p>execute() 函数可以使用 SQL 语句</p>
-<hr>
-<p>接下来我们来学习 SQL 语句<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> aaa</span><br></pre></td></tr></table></figure></p>
-<p>这段代码的含义是：从 aaa 中读取信息</p>
-<hr>
-<p>我们来把 python 和 SQL 结合起来<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute(<span class="string">&#x27;SELECT xp, coins FROM users WHERE uid=?&#x27;</span>, (uid,))</span><br></pre></td></tr></table></figure></p>
-<p>这段代码的含义是：从 <code>users</code> Table 中读取数据 <code>xp</code> 和 <code>coins</code>, 但是此时我们不知道 uid 是什么，所以使用 <code>WHERE uid = ?</code>，后面加上 <code>(uid,)</code>来给 SQL 语句内的 uid 赋值 </p>
-<hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute(<span class="string">&#x27;UPDATE users SET xp=?, coins=?, WHERE uid=?&#x27;</span>, (xp, coins, uid))</span><br></pre></td></tr></table></figure>
-<p>这段代码的含义是：更新 <code>users</code> 的数据</p>
-<hr>
-<p>一些最重要的 SQL 命令</p>
-<pre><code>SELECT - 从数据库中提取数据
-UPDATE - 更新数据库中的数据
-DELETE - 从数据库中删除数据
-INSERT INTO - 向数据库中插入新数据
-CREATE DATABASE - 创建新数据库
-ALTER DATABASE - 修改数据库
-CREATE TABLE - 创建新表
-ALTER TABLE - 变更（改变）数据库表
-DROP TABLE - 删除表
-CREATE INDEX - 创建索引（搜索键）
-DROP INDEX - 删除索引
-</code></pre>
-      </section>
-
-      
-      
-        <nav class="article-nav">
-          
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2023/01/04/%E6%88%91%E7%9A%84%E4%B9%A6%E5%8D%95/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">我的书单</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
-          
-        </nav>
-      
-
-      <section class="page-message-container layout-padding">
         
-
-
-  
-  
-
-  
-  
-
-
       </section>
+
+      
+      
+        <section class="page-link-container">
+          
+            <div class="link-item layout-padding">
+              <a href="https://blog.ctri.cc/" title="Qiyiming&#39;s Blog" class="content-padding--primary soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+                
+                <div>
+                  <h4 class="text-ellipsis">Qiyiming&#39;s Blog</h4>
+                  
+                  <p class="text-ellipsis">一个摆烂程序员无聊的博客</p>
+                  
+                </div>
+              </a>
+            </div>
+          
+            <div class="link-item layout-padding">
+              <a href="https://blog.nranp.com/" title="Nranphy&#39;s blog" class="content-padding--primary soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+                
+                <div>
+                  <h4 class="text-ellipsis">Nranphy&#39;s blog</h4>
+                  
+                  <p class="text-ellipsis">津轻年回的博客~可爱的男孩子+大佬</p>
+                  
+                </div>
+              </a>
+            </div>
+          
+        </section>
+      
+
+      
+      
     </div>
     <div class="widget-info">
       <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -243,8 +192,6 @@ DROP INDEX - 删除索引
 
       
 
-      
-
       <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
   <div class="widget-title">
     <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -275,6 +222,7 @@ DROP INDEX - 删除索引
     </div>
   </article>
 </div>
+
 
     <!-- footer container -->
 <footer id="footer" class="footer">

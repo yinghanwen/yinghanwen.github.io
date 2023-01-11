@@ -24,7 +24,7 @@
 
   
 
-  <title>aiosqlite学习笔记 | Bob&#39;s Blog</title>
+  <title>links | Bob&#39;s Blog</title>
 
   
 
@@ -100,11 +100,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">aiosqlite学习笔记</h1>
+          <h1 class="title-wrap">links</h1>
           <h2 class="title-sub-wrap">
             <strong>Bob Ying</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2023-01-02T19:07:00.000Z" itemprop="datePublished">2023-01-03</time>
+            <time  class="article-date" datetime="2023-01-11T05:24:26.000Z" itemprop="datePublished">2023-01-11</time>
           </h2>
           
           
@@ -112,12 +112,6 @@
   
 </ul>
           <ul class="wrap-list dark">
-  
-    <li><a href="/tags/python/">🏷️ python</a></li>
-  
-    <li><a href="/tags/asyncio/">🏷️ asyncio</a></li>
-  
-    <li><a href="/tags/sql/">🏷️ sql</a></li>
   
 </ul>
         </div>
@@ -141,55 +135,27 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>aiosqlite 是一个可以异步操作 SQL 的 Python 库, 可以用在 Nonebot2 插件 sqlite 读取数据上</p>
-<p>如何使用 aiosqlite<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">with</span> aiosqlite.connect(<span class="string">&quot;test.db&quot;</span>) <span class="keyword">as</span> db:</span><br><span class="line">    cur = <span class="keyword">await</span> db.cursor()</span><br></pre></td></tr></table></figure></p>
-<p>这段代码的含义是：异步链接上数据库, cursor 是光标的意思，有了 cursor 就可以操作数据库数据</p>
-<hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute()</span><br></pre></td></tr></table></figure>
-<p>execute() 函数可以使用 SQL 语句</p>
-<hr>
-<p>接下来我们来学习 SQL 语句<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> aaa</span><br></pre></td></tr></table></figure></p>
-<p>这段代码的含义是：从 aaa 中读取信息</p>
-<hr>
-<p>我们来把 python 和 SQL 结合起来<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute(<span class="string">&#x27;SELECT xp, coins FROM users WHERE uid=?&#x27;</span>, (uid,))</span><br></pre></td></tr></table></figure></p>
-<p>这段代码的含义是：从 <code>users</code> Table 中读取数据 <code>xp</code> 和 <code>coins</code>, 但是此时我们不知道 uid 是什么，所以使用 <code>WHERE uid = ?</code>，后面加上 <code>(uid,)</code>来给 SQL 语句内的 uid 赋值 </p>
-<hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute(<span class="string">&#x27;UPDATE users SET xp=?, coins=?, WHERE uid=?&#x27;</span>, (xp, coins, uid))</span><br></pre></td></tr></table></figure>
-<p>这段代码的含义是：更新 <code>users</code> 的数据</p>
-<hr>
-<p>一些最重要的 SQL 命令</p>
-<pre><code>SELECT - 从数据库中提取数据
-UPDATE - 更新数据库中的数据
-DELETE - 从数据库中删除数据
-INSERT INTO - 向数据库中插入新数据
-CREATE DATABASE - 创建新数据库
-ALTER DATABASE - 修改数据库
-CREATE TABLE - 创建新表
-ALTER TABLE - 变更（改变）数据库表
-DROP TABLE - 删除表
-CREATE INDEX - 创建索引（搜索键）
-DROP INDEX - 删除索引
-</code></pre>
+        
       </section>
 
       
       
         <nav class="article-nav">
           
+          
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2023/01/04/%E6%88%91%E7%9A%84%E4%B9%A6%E5%8D%95/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">我的书单</h2>
+        <a href="/2023/01/06/git%20%E4%B8%8E%20contribute%20%E6%A0%87%E5%87%86/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">git 与 contribute 标准</h2>
         </a>
       
-      <div class="card-text--row">Newer</div>
+      <div class="card-text--row">Older</div>
     </div>
   </article>
 </div>
-          
           
         </nav>
       
