@@ -24,7 +24,7 @@
 
   
 
-  <title>aiosqlite学习笔记 | Bob&#39;s Blog</title>
+  <title>汇编基础笔记 | Bob&#39;s Blog</title>
 
   
 
@@ -100,12 +100,17 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">aiosqlite学习笔记</h1>
+          <h1 class="title-wrap">汇编基础笔记</h1>
           <h2 class="title-sub-wrap">
             <strong>Bob Ying</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2023-01-02T19:07:00.000Z" itemprop="datePublished">2023-01-03</time>
+            <time  class="article-date" datetime="2023-01-11T09:31:50.000Z" itemprop="datePublished">2023-01-11</time>
           </h2>
+          
+            <h2 class="title-sub-wrap new-date">
+              <span>最后更新于</span>
+              <time  class="article-updated" datetime="2023-01-14T08:47:09.738Z" itemprop="dateUpdated">2023-01-14</time>
+            </h2>
           
           
           <ul class="wrap-list dark">
@@ -113,11 +118,7 @@
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/python/">🏷️ python</a></li>
-  
-    <li><a href="/tags/asyncio/">🏷️ asyncio</a></li>
-  
-    <li><a href="/tags/sql/">🏷️ sql</a></li>
+    <li><a href="/tags/asm/">🏷️ asm</a></li>
   
 </ul>
         </div>
@@ -141,55 +142,45 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>aiosqlite 是一个可以异步操作 SQL 的 Python 库, 可以用在 Nonebot2 插件 sqlite 读取数据上</p>
-<p>如何使用 aiosqlite<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">with</span> aiosqlite.connect(<span class="string">&quot;test.db&quot;</span>) <span class="keyword">as</span> db:</span><br><span class="line">    cur = <span class="keyword">await</span> db.cursor()</span><br></pre></td></tr></table></figure></p>
-<p>这段代码的含义是：异步链接上数据库, cursor 是光标的意思，有了 cursor 就可以操作数据库数据</p>
-<hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute()</span><br></pre></td></tr></table></figure>
-<p>execute() 函数可以使用 SQL 语句</p>
-<hr>
-<p>接下来我们来学习 SQL 语句<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> aaa</span><br></pre></td></tr></table></figure></p>
-<p>这段代码的含义是：从 aaa 中读取信息</p>
-<hr>
-<p>我们来把 python 和 SQL 结合起来<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute(<span class="string">&#x27;SELECT xp, coins FROM users WHERE uid=?&#x27;</span>, (uid,))</span><br></pre></td></tr></table></figure></p>
-<p>这段代码的含义是：从 <code>users</code> Table 中读取数据 <code>xp</code> 和 <code>coins</code>, 但是此时我们不知道 uid 是什么，所以使用 <code>WHERE uid = ?</code>，后面加上 <code>(uid,)</code>来给 SQL 语句内的 uid 赋值 </p>
-<hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute(<span class="string">&#x27;UPDATE users SET xp=?, coins=?, WHERE uid=?&#x27;</span>, (xp, coins, uid))</span><br></pre></td></tr></table></figure>
-<p>这段代码的含义是：更新 <code>users</code> 的数据</p>
-<hr>
-<p>一些最重要的 SQL 命令</p>
-<pre><code>SELECT - 从数据库中提取数据
-UPDATE - 更新数据库中的数据
-DELETE - 从数据库中删除数据
-INSERT INTO - 向数据库中插入新数据
-CREATE DATABASE - 创建新数据库
-ALTER DATABASE - 修改数据库
-CREATE TABLE - 创建新表
-ALTER TABLE - 变更（改变）数据库表
-DROP TABLE - 删除表
-CREATE INDEX - 创建索引（搜索键）
-DROP INDEX - 删除索引
-</code></pre>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>复习（学习）一下汇编与系统内核研发的知识点。想到什么了再补充</p>
+<h1 id="汇编基础"><a href="#汇编基础" class="headerlink" title="汇编基础"></a>汇编基础</h1><h2 id="mov"><a href="#mov" class="headerlink" title="mov"></a>mov</h2><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov</span> x0, x1<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>将寄存器x1的值传递给寄存器x0</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">movb - <span class="built_in">byte</span> <span class="number">1</span>字节 <span class="number">8</span>位</span><br><span class="line">movw - <span class="built_in">word</span> <span class="number">2</span>字节 <span class="number">16</span>位</span><br><span class="line">movl - long <span class="number">4</span>字节 <span class="number">32</span>位</span><br><span class="line"><span class="keyword">movq</span> - quadword <span class="number">8</span>字节 <span class="number">64</span>位</span><br></pre></td></tr></table></figure>
+<h2 id="add"><a href="#add" class="headerlink" title="add"></a>add</h2><p>顾名思义</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">add</span> x0, x1, x2<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>将寄存器x1和x2的内容相加, 并将结果存放载寄存器x0中</p>
+<h2 id="sub-mul"><a href="#sub-mul" class="headerlink" title="sub/mul"></a>sub/mul</h2><p>顾名思义，语法同上</p>
+<h2 id="sdiv-udiv"><a href="#sdiv-udiv" class="headerlink" title="sdiv/udiv"></a>sdiv/udiv</h2><p>sdiv - signed divide</p>
+<p>udiv - unsigned divide</p>
+<h2 id="and"><a href="#and" class="headerlink" title="and"></a>and</h2><p>与运算</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">and</span> x0, x0, #<span class="number">0xf</span></span><br></pre></td></tr></table></figure>
+<h2 id="or"><a href="#or" class="headerlink" title="or"></a>or</h2><p>或运算</p>
+<h2 id="xor"><a href="#xor" class="headerlink" title="xor"></a>xor</h2><p>异或运算</p>
+<h2 id="jmp"><a href="#jmp" class="headerlink" title="jmp"></a>jmp</h2><p>跳转指令</p>
+<p>ljmp - 长转移</p>
+<h2 id="伪指令"><a href="#伪指令" class="headerlink" title="伪指令"></a>伪指令</h2><p>.xxxx</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.ascii</span> <span class="string">&quot;hello,world!&quot;</span></span><br></pre></td></tr></table></figure>
+
       </section>
 
       
       
         <nav class="article-nav">
           
+          
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2023/01/04/%E6%88%91%E7%9A%84%E4%B9%A6%E5%8D%95/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">我的书单</h2>
+        <a href="/2023/01/06/git%20%E4%B8%8E%20contribute%20%E6%A0%87%E5%87%86/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">git 与 contribute 标准</h2>
         </a>
       
-      <div class="card-text--row">Newer</div>
+      <div class="card-text--row">Older</div>
     </div>
   </article>
 </div>
-          
           
         </nav>
       
