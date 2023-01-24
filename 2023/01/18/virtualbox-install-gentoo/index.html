@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+
+
+  <meta name="generator" content="Hexo 5.4.2">
+
+  
+
+  
+
+  
+    <meta name="author" content="Bob Ying">
+  
+
+  
+
+  
+
+  <title>VirtualBox 安装 Gentoo 笔记 | Bob&#39;s Blog</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@1.1.3/index.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/monokai.css">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          Bob&#39;s Blog
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">首页</a></li>
+        
+          <li class="navbar-list-item"><a href="/links">友链</a></li>
+        
+          <li class="navbar-list-item"><a href="/about">关于</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">VirtualBox 安装 Gentoo 笔记</h1>
+          <h2 class="title-sub-wrap">
+            <strong>Bob Ying</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2023-01-18T14:43:49.000Z" itemprop="datePublished">2023-01-18</time>
+          </h2>
+          
+            <h2 class="title-sub-wrap new-date">
+              <span>最后更新于</span>
+              <time  class="article-updated" datetime="2023-01-19T08:13:43.068Z" itemprop="dateUpdated">2023-01-19</time>
+            </h2>
+          
+          
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">🏷️ 虚拟机</a></li>
+  
+    <li><a href="/tags/Gentoo/">🏷️ Gentoo</a></li>
+  
+    <li><a href="/tags/Linux/">🏷️ Linux</a></li>
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <h2 id="安装前的准备"><a class="markdownIt-Anchor" href="#安装前的准备"></a> 安装前的准备</h2>
+<p>首先，下载 VirtualBox 和 Gentoo 镜像</p>
+<p>Gentoo 镜像可在<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/gentoo/releases/amd64/autobuilds/current-install-amd64-minimal/">清华大学镜像站</a>下载</p>
+<p>最后一行就是啦~</p>
+<p><img src="C:%5CUsers%5CBeimo%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20230119000310114.png" alt="image-20230119000310114" /></p>
+<p>打开 VirtualBox 并点击 ”新建“</p>
+<p><img src="C:%5CUsers%5CBeimo%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20230119000409127.png" alt="" /></p>
+<p>然后按这样设置</p>
+<p><img src="C:%5CUsers%5CBeimo%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20230119000446471.png" alt="image-20230119000446471" /></p>
+<p>Hardware 中的内存大小和内核数根据自己的电脑配置而定</p>
+<p>勾选 Enable EFI</p>
+<p>Hard Disk 根据自己情况而定</p>
+<h1 id="启航"><a class="markdownIt-Anchor" href="#启航"></a> 启航！</h1>
+<h2 id="ssh到-live-cd"><a class="markdownIt-Anchor" href="#ssh到-live-cd"></a> ssh到 live cd</h2>
+<p>检查网络</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping baidu.com -c3</span><br></pre></td></tr></table></figure>
+<p>进入 livecd 后，设置 root 密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
+<p>然后开启 sshd 服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/ssh/sshd_config</span><br><span class="line"># 修改 PermitRootLogin PasswordAuthentication 为 yes</span><br><span class="line">/etc/init.d/sshd start</span><br></pre></td></tr></table></figure>
+<p>查询 livecd ip地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<p>ssh到 livecd</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@&lt;ip&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="分区"><a class="markdownIt-Anchor" href="#分区"></a> 分区</h2>
+<p>查看所有块设备（一般是sdX)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br></pre></td></tr></table></figure>
+<p>这里使用 fdisk</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">g # 分区表变成GPT格式</span><br><span class="line">n # 建立新分区</span><br><span class="line">+...M/G #在 last sector输入这一命令表示添加多少存储空间给新分区</span><br><span class="line">t #切换分区类型 我们会用到 uefi 和 swap</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">分区</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">详细描述</th>
+<th style="text-align:center">挂载点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">/dev/sda1</td>
+<td style="text-align:center">efi</td>
+<td style="text-align:center">efi分区</td>
+<td style="text-align:center">/mnt/gentoo/boot/efi</td>
+</tr>
+<tr>
+<td style="text-align:center">/dev/sda2</td>
+<td style="text-align:center">Linux filesystem</td>
+<td style="text-align:center">启动分区</td>
+<td style="text-align:center">/mnt/gentoo/boot</td>
+</tr>
+<tr>
+<td style="text-align:center">/dev/sda3</td>
+<td style="text-align:center">swap</td>
+<td style="text-align:center">交换分区（建议和内存大小相同）</td>
+<td style="text-align:center">\</td>
+</tr>
+<tr>
+<td style="text-align:center">/dev/sda4</td>
+<td style="text-align:center">Linux filesystem</td>
+<td style="text-align:center">根分区</td>
+<td style="text-align:center">/mnt/gentoo</td>
+</tr>
+</tbody>
+</table>
+<p>接下来我们格式化上列分区</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkfs.vfat -F 32 /dev/sda1</span><br><span class="line">mkfs.ext4 /dev/sda2</span><br><span class="line">mkswap /dev/sda3</span><br><span class="line">mkfs.ext4 /dev/sda4</span><br></pre></td></tr></table></figure>
+<p>挂载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /mnt/gentoo/boot</span><br><span class="line"><span class="built_in">mkdir</span> /mnt/gentoo/boot/efi</span><br><span class="line"></span><br><span class="line">swapon /dev/sda3</span><br><span class="line">mount /dev/sda1 /mnt/gentoo/boot/efi</span><br><span class="line"><span class="comment"># 后面同上</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装-stage3以-openrc-为例"><a class="markdownIt-Anchor" href="#安装-stage3以-openrc-为例"></a> 安装 stage3(以 openrc 为例)</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">links https://mirrors.bfsu.edu.cn/gentoo/</span><br></pre></td></tr></table></figure>
+<p>打开后，使用方向及回车键定位到 <code>releases/amd64/autobuilds/</code> 目录。</p>
+<p>按 Q 退出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /mnt/gentoo</span><br><span class="line">tar xpvf /root/&lt;stage3_name&gt;.tar.xz --xattrs-include=&#x27;*.*&#x27; --numeric-owner</span><br></pre></td></tr></table></figure>
+<h2 id="修改-makeconf"><a class="markdownIt-Anchor" href="#修改-makeconf"></a> 修改 make.conf</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;GENTOO_MIRRORS=&quot;https://mirrors.bfsu.edu.cn/gentoo/&quot;&#x27;</span> &gt;&gt;/mnt/gentoo/etc/portage/make.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;MAKEOPTS=&quot;-j4&quot;&#x27;</span> <span class="comment">#4进程同时工作，需按自己实际情况制定</span></span><br></pre></td></tr></table></figure>
+<h2 id="chroot"><a class="markdownIt-Anchor" href="#chroot"></a> chroot</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -L /etc/resolv.conf /mnt/gentoo/etc/</span><br><span class="line">mount --types proc /proc /mnt/gentoo/proc</span><br><span class="line">mount --rbind /sys /mnt/gentoo/sys</span><br><span class="line">mount --rbind /dev /mnt/gentoo/dev</span><br><span class="line"></span><br><span class="line"><span class="built_in">chroot</span> /mnt/gentoo</span><br><span class="line">. /etc/profile</span><br><span class="line">PS1=(<span class="built_in">chroot</span>)<span class="variable">$PS1</span></span><br></pre></td></tr></table></figure>
+<h2 id="portage"><a class="markdownIt-Anchor" href="#portage"></a> Portage</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">emerge-webrsync</span><br><span class="line">eselect news <span class="built_in">read</span> --quiet</span><br></pre></td></tr></table></figure>
+<h2 id="安装内核"><a class="markdownIt-Anchor" href="#安装内核"></a> 安装内核</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /etc/portage/package.license</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;sys-kernel/linux-firmware linux-fw-redistributable no-source-code&#x27;</span> &gt;/etc/portage/package.license/linux-firmware</span><br><span class="line"></span><br><span class="line">emerge -vj linux-firmware gentoo-kernel-bin grub vim</span><br></pre></td></tr></table></figure>
+<h2 id="fstab"><a class="markdownIt-Anchor" href="#fstab"></a> Fstab</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 记录启动分区的 UUID 值到 fstab 文件</span></span><br><span class="line">blkid /dev/sda2 &gt;&gt;/etc/fstab</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果是配置 UEFI 启动记录，那么记录 EFI 分区的 UUID 值到 fstab 文件</span></span><br><span class="line">blkid /dev/sda1 &gt;&gt;/etc/fstab</span><br><span class="line"></span><br><span class="line"><span class="comment"># 记录交换分区的 UUID 值到 fstab 文件</span></span><br><span class="line">blkid /dev/sda3 &gt;&gt;/etc/fstab</span><br><span class="line"></span><br><span class="line"><span class="comment"># 记录根分区的 UUID 值到 fstab 文件</span></span><br><span class="line">blkid /dev/sda4 &gt;&gt;/etc/fstab</span><br></pre></td></tr></table></figure>
+<h2 id="grub"><a class="markdownIt-Anchor" href="#grub"></a> Grub</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target=x86_64-efi --efi-directory=/boot/efi/ --bootloader-id=Gentoo</span><br><span class="line"></span><br><span class="line">sed -Ei <span class="string">&quot;/GRUB_CMDLINE_LINUX_DEFAULT/s/^#*(GRUB.*DEFAULT=).*$/\1\&quot;resume=UUID=<span class="subst">$(blkid -o value /dev/sda3 | head -1)</span>\&quot;/&quot;</span> /etc/default/grub	<span class="comment">#启用交换分区休眠后唤醒的功能</span></span><br><span class="line"></span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+<h2 id="用户"><a class="markdownIt-Anchor" href="#用户"></a> 用户</h2>
+<p>Gentoo 默认是不让设置弱密码的，所以我们要改一下设置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/security/passwdqc.conf</span><br></pre></td></tr></table></figure>
+<p>将 enforce=everybody 改成 enforce=none 即可</p>
+<p>设置 root 密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
+<p>创建普通用户（以 bob 为例）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">useradd -m G wheel bob</span><br><span class="line">passwd bob</span><br><span class="line">emerge app-admin/sudo</span><br><span class="line">EDITOR=vim visudo</span><br><span class="line"><span class="comment"># 去掉 %wheel 那几行</span></span><br></pre></td></tr></table></figure>
+<h2 id="网络"><a class="markdownIt-Anchor" href="#网络"></a> 网络</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">emerge -vj1 net-misc/openssh net-misc/networkmanager</span><br><span class="line">emerge -On net-misc/networkmanager</span><br><span class="line"></span><br><span class="line">rc-update add NetworkManager default</span><br></pre></td></tr></table></figure>
+<h2 id="重启"><a class="markdownIt-Anchor" href="#重启"></a> 重启</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br><span class="line">umount -r /mnt/gentoo/&#123;dev, proc, sys&#125;</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<h2 id="时间"><a class="markdownIt-Anchor" href="#时间"></a> 时间</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;Asia/Shanghai&#x27;</span> &gt;/etc/timezone</span><br></pre></td></tr></table></figure>
+<h2 id="语言"><a class="markdownIt-Anchor" href="#语言"></a> 语言</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /5/</span><br></pre></td></tr></table></figure>
+
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2023/01/18/axiom-of-choice/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">选择公理学习笔记</h2>
+        </a>
+      
+      <div class="card-text--row">Newer</div>
+    </div>
+  </article>
+</div>
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2023/01/11/asm-basic-notes/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">汇编基础笔记</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+    
+      <h2>Bob Ying</h2>
+    
+    
+      <p>An artist</p>
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>7</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        0
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        14
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
+      
+
+      <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+    <span>CATEGORYS</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categorys-list">
+      
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      <a href="/tags/Gentoo/" style="font-size: 10px;" class="tags-cloud-0">Gentoo</a> <a href="/tags/Linux/" style="font-size: 10px;" class="tags-cloud-0">Linux</a> <a href="/tags/asm/" style="font-size: 10px;" class="tags-cloud-0">asm</a> <a href="/tags/asyncio/" style="font-size: 10px;" class="tags-cloud-0">asyncio</a> <a href="/tags/contribution/" style="font-size: 10px;" class="tags-cloud-0">contribution</a> <a href="/tags/git/" style="font-size: 10px;" class="tags-cloud-0">git</a> <a href="/tags/python/" style="font-size: 10px;" class="tags-cloud-0">python</a> <a href="/tags/sql/" style="font-size: 10px;" class="tags-cloud-0">sql</a> <a href="/tags/%E6%84%9F%E6%83%B3/" style="font-size: 10px;" class="tags-cloud-0">感想</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 10px;" class="tags-cloud-0">数学</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E8%AF%84%E6%B5%8B/" style="font-size: 10px;" class="tags-cloud-0">游戏评测</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;" class="tags-cloud-0">虚拟机</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 10px;" class="tags-cloud-0">阅读</a> <a href="/tags/%E9%9B%86%E5%90%88%E8%AE%BA/" style="font-size: 10px;" class="tags-cloud-0">集合论</a>
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    <div class="social-icons">
+      
+        
+          <a href="https://github.com/yinghanwen" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+    </div>
+     
+    <p>&copy; 2023 <a href="/" target="_blank">Bob Ying</a></p>
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
+
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

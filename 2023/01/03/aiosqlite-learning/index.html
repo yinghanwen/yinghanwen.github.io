@@ -24,7 +24,7 @@
 
   
 
-  <title>git 与 contribute 标准 | Bob&#39;s Blog</title>
+  <title>aiosqlite学习笔记 | Bob&#39;s Blog</title>
 
   
 
@@ -42,7 +42,11 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 <body>
   <div class="root-container">
     
@@ -100,11 +104,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">git 与 contribute 标准</h1>
+          <h1 class="title-wrap">aiosqlite学习笔记</h1>
           <h2 class="title-sub-wrap">
             <strong>Bob Ying</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2023-01-05T23:21:10.000Z" itemprop="datePublished">2023-01-06</time>
+            <time  class="article-date" datetime="2023-01-02T19:07:00.000Z" itemprop="datePublished">2023-01-03</time>
           </h2>
           
           
@@ -113,9 +117,11 @@
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/git/">🏷️ git</a></li>
+    <li><a href="/tags/python/">🏷️ python</a></li>
   
-    <li><a href="/tags/contribution/">🏷️ contribution</a></li>
+    <li><a href="/tags/asyncio/">🏷️ asyncio</a></li>
+  
+    <li><a href="/tags/sql/">🏷️ sql</a></li>
   
 </ul>
         </div>
@@ -139,33 +145,38 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="project-name-Contributing-Guide"><a href="#project-name-Contributing-Guide" class="headerlink" title="(project name) Contributing Guide"></a>(project name) Contributing Guide</h1><p>First of all, thank you for your contribution to (project name)!</p>
-<p>This guide is designed to guide you to submit contributions to (project name) in a more standardized way, please read it carefully.</p>
-<h2 id="Submit-Issue"><a href="#Submit-Issue" class="headerlink" title="Submit Issue"></a>Submit Issue</h2><p>Before submitting an Issue, we recommend that you check <a href="">FAQ</a> and <a href="">Existing Issues</a> to prevent duplicate submissions.</p>
-<h3 id="Reporting-Issues-Bugs-and-Bugs"><a href="#Reporting-Issues-Bugs-and-Bugs" class="headerlink" title="Reporting Issues, Bugs and Bugs"></a>Reporting Issues, Bugs and Bugs</h3><p>(project name) is still a project under development that is not stable enough. If you find a problem during use and believe it is caused by (project name), please submit an Issue.</p>
-<h3 id="Suggestions"><a href="#Suggestions" class="headerlink" title="Suggestions"></a>Suggestions</h3><p>(project name) has not yet entered the official version, welcome to propose new features to be added in the Issue.</p>
-<p>In order for developers to better understand your intentions, please carefully describe the features you need, and if possible, propose a solution that you think is feasible.</p>
-<h2 id="Pull-Request"><a href="#Pull-Request" class="headerlink" title="Pull Request"></a>Pull Request</h2><h3 id="Commit-specification"><a href="#Commit-specification" class="headerlink" title="Commit specification"></a>Commit specification</h3><p>Please make sure that each of your commits can clearly describe its intent, and try to have only one intent for a commit</p>
-<p>The commit message format is as follows:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>type (required)</strong></p>
-<p>The category used to describe git commits, only the following identities are allowed.</p>
-<p>feat: new function (feature)</p>
-<p>fix/to: Fix bugs, which can be bugs discovered by QA, or bugs discovered by R&amp;D itself.</p>
-<p>fix: generate a diff and automatically fix this issue. Suitable for one commit to directly fix the problem to: only generate diff and not automatically fix the problem. Good for multiple commits. Use fix when submitting final fixes</p>
-<p>docs: documentation</p>
-<p>style: format (changes that do not affect code operation)</p>
-<p>refactor: refactoring (that is, not a new feature, nor a code change to modify a bug)</p>
-<p>perf: optimization related, such as improving performance and experience</p>
-<p>test: add test</p>
-<p>chore: changes to the build process or auxiliary tools</p>
-<p>revert: Roll back to the previous version</p>
-<p>merge: code merge</p>
-<p>sync: Synchronize bugs on the mainline or branch</p>
-<p><strong>scope (optional)</strong></p>
-<p>Scope is used to illustrate the scope of commit influence, such as data layer, control layer, view layer, etc., depending on the project.</p>
-<h3 id="Workflow-Overview"><a href="#Workflow-Overview" class="headerlink" title="Workflow Overview"></a>Workflow Overview</h3><p>The <code>master</code> branch is the development branch of (project name). In any case, please do not modify the <code>master</code> branch directly, but create a Pull Request with the target branch of <code>(project name):master</code> to submit the modification.</p>
-<p>If you are not a member of (project name) Developers, you can initiate a Pull Request to the <code>master</code> branch of this repository after forking this repository, and follow the commit message specification mentioned earlier to create a commit. We will merge your contribution into the main branch through squash merge after the code review is passed.</p>
+        <p>aiosqlite 是一个可以异步操作 SQL 的 Python 库, 可以用在 Nonebot2 插件 sqlite 读取数据上</p>
+<p>如何使用 aiosqlite</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">with</span> aiosqlite.connect(<span class="string">&quot;test.db&quot;</span>) <span class="keyword">as</span> db:</span><br><span class="line">    cur = <span class="keyword">await</span> db.cursor()</span><br></pre></td></tr></table></figure>
+<p>这段代码的含义是：异步链接上数据库, cursor 是光标的意思，有了 cursor 就可以操作数据库数据</p>
+<hr />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute()</span><br></pre></td></tr></table></figure>
+<p>execute() 函数可以使用 SQL 语句</p>
+<hr />
+<p>接下来我们来学习 SQL 语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> aaa</span><br></pre></td></tr></table></figure>
+<p>这段代码的含义是：从 aaa 中读取信息</p>
+<hr />
+<p>我们来把 python 和 SQL 结合起来</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute(<span class="string">&#x27;SELECT xp, coins FROM users WHERE uid=?&#x27;</span>, (uid,))</span><br></pre></td></tr></table></figure>
+<p>这段代码的含义是：从 <code>users</code> Table 中读取数据 <code>xp</code> 和 <code>coins</code>, 但是此时我们不知道 uid 是什么，所以使用 <code>WHERE uid = ?</code>，后面加上 <code>(uid,)</code>来给 SQL 语句内的 uid 赋值</p>
+<hr />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute(<span class="string">&#x27;UPDATE users SET xp=?, coins=?, WHERE uid=?&#x27;</span>, (xp, coins, uid))</span><br></pre></td></tr></table></figure>
+<p>这段代码的含义是：更新 <code>users</code> 的数据</p>
+<hr />
+<p>一些最重要的 SQL 命令</p>
+<pre><code>SELECT - 从数据库中提取数据
+UPDATE - 更新数据库中的数据
+DELETE - 从数据库中删除数据
+INSERT INTO - 向数据库中插入新数据
+CREATE DATABASE - 创建新数据库
+ALTER DATABASE - 修改数据库
+CREATE TABLE - 创建新表
+ALTER TABLE - 变更（改变）数据库表
+DROP TABLE - 删除表
+CREATE INDEX - 创建索引（搜索键）
+DROP INDEX - 删除索引
+</code></pre>
 
       </section>
 
@@ -178,8 +189,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/01/11/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">汇编基础笔记</h2>
+        <a href="/2023/01/04/my-booklist/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">我的书单</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -187,20 +198,6 @@
   </article>
 </div>
           
-          
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2023/01/04/%E6%88%91%E7%9A%84%E4%B9%A6%E5%8D%95/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">我的书单</h2>
-        </a>
-      
-      <div class="card-text--row">Older</div>
-    </div>
-  </article>
-</div>
           
         </nav>
       
@@ -226,7 +223,7 @@
       <h2>Bob Ying</h2>
     
     
-      <p>Try everything</p>
+      <p>An artist</p>
     
 
     <div class="count-box">
@@ -234,7 +231,7 @@
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>4</span>
+        <span>7</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -246,7 +243,7 @@
         <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
 </svg>
-        7
+        14
       </div>
     </div>
   </div>
@@ -279,7 +276,7 @@
   </div>
   <div class="widget-body">
     <div class="tags-cloud">
-      <a href="/tags/asm/" style="font-size: 10px;" class="tags-cloud-0">asm</a> <a href="/tags/asyncio/" style="font-size: 10px;" class="tags-cloud-0">asyncio</a> <a href="/tags/contribution/" style="font-size: 10px;" class="tags-cloud-0">contribution</a> <a href="/tags/git/" style="font-size: 10px;" class="tags-cloud-0">git</a> <a href="/tags/python/" style="font-size: 10px;" class="tags-cloud-0">python</a> <a href="/tags/sql/" style="font-size: 10px;" class="tags-cloud-0">sql</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 10px;" class="tags-cloud-0">阅读</a>
+      <a href="/tags/Gentoo/" style="font-size: 10px;" class="tags-cloud-0">Gentoo</a> <a href="/tags/Linux/" style="font-size: 10px;" class="tags-cloud-0">Linux</a> <a href="/tags/asm/" style="font-size: 10px;" class="tags-cloud-0">asm</a> <a href="/tags/asyncio/" style="font-size: 10px;" class="tags-cloud-0">asyncio</a> <a href="/tags/contribution/" style="font-size: 10px;" class="tags-cloud-0">contribution</a> <a href="/tags/git/" style="font-size: 10px;" class="tags-cloud-0">git</a> <a href="/tags/python/" style="font-size: 10px;" class="tags-cloud-0">python</a> <a href="/tags/sql/" style="font-size: 10px;" class="tags-cloud-0">sql</a> <a href="/tags/%E6%84%9F%E6%83%B3/" style="font-size: 10px;" class="tags-cloud-0">感想</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 10px;" class="tags-cloud-0">数学</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E8%AF%84%E6%B5%8B/" style="font-size: 10px;" class="tags-cloud-0">游戏评测</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 10px;" class="tags-cloud-0">虚拟机</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 10px;" class="tags-cloud-0">阅读</a> <a href="/tags/%E9%9B%86%E5%90%88%E8%AE%BA/" style="font-size: 10px;" class="tags-cloud-0">集合论</a>
     </div>
   </div>
 </section>

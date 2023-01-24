@@ -24,7 +24,7 @@
 
   
 
-  <title>Bob&#39;s Blog</title>
+  <title>汇编基础笔记 | Bob&#39;s Blog</title>
 
   
 
@@ -51,7 +51,7 @@
   <div class="root-container">
     
 <!-- header container -->
-<header class="header-container">
+<header class="header-container post">
   
     <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
   
@@ -101,82 +101,129 @@
 
   
   
-
-  
-  
     <div class="header-content">
-      <div class="post-text layout-block layout-padding">
-        <h1 class="title-wrap"></h1>
-        
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">汇编基础笔记</h1>
+          <h2 class="title-sub-wrap">
+            <strong>Bob Ying</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2023-01-11T09:31:50.000Z" itemprop="datePublished">2023-01-11</time>
+          </h2>
+          
+            <h2 class="title-sub-wrap new-date">
+              <span>最后更新于</span>
+              <time  class="article-updated" datetime="2023-01-18T15:28:34.695Z" itemprop="dateUpdated">2023-01-18</time>
+            </h2>
+          
+          
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/tags/asm/">🏷️ asm</a></li>
+  
+</ul>
+        </div>
       </div>
     </div>
+  
+
+  
   
   
 </header>
 
-    <!-- 分页(其他自定义页面) -->
+    <!-- 文章 -->
 
-<!-- 自定义页面 -->
-
+<!-- 文章内容 -->
 <div class="body-container">
   <article class="content-container layout-block post-container">
     <div class="article-info">
       
+      
+      
+      
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        
+        <h1 id="汇编基础"><a class="markdownIt-Anchor" href="#汇编基础"></a> 汇编基础</h1>
+<h2 id="mov"><a class="markdownIt-Anchor" href="#mov"></a> mov</h2>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov</span> x0, x1<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>将寄存器x1的值传递给寄存器x0</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">movb - <span class="built_in">byte</span> <span class="number">1</span>字节 <span class="number">8</span>位</span><br><span class="line">movw - <span class="built_in">word</span> <span class="number">2</span>字节 <span class="number">16</span>位</span><br><span class="line">movl - long <span class="number">4</span>字节 <span class="number">32</span>位</span><br><span class="line"><span class="keyword">movq</span> - quadword <span class="number">8</span>字节 <span class="number">64</span>位</span><br></pre></td></tr></table></figure>
+<h2 id="add"><a class="markdownIt-Anchor" href="#add"></a> add</h2>
+<p>顾名思义</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">add</span> x0, x1, x2<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>将寄存器x1和x2的内容相加, 并将结果存放载寄存器x0中</p>
+<h2 id="submul"><a class="markdownIt-Anchor" href="#submul"></a> sub/mul</h2>
+<p>顾名思义，语法同上</p>
+<h2 id="sdivudiv"><a class="markdownIt-Anchor" href="#sdivudiv"></a> sdiv/udiv</h2>
+<p>sdiv - signed divide</p>
+<p>udiv - unsigned divide</p>
+<h2 id="and"><a class="markdownIt-Anchor" href="#and"></a> and</h2>
+<p>与运算</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">and</span> x0, x0, #<span class="number">0xf</span></span><br></pre></td></tr></table></figure>
+<h2 id="or"><a class="markdownIt-Anchor" href="#or"></a> or</h2>
+<p>或运算</p>
+<h2 id="xor"><a class="markdownIt-Anchor" href="#xor"></a> xor</h2>
+<p>异或运算</p>
+<h2 id="jmp"><a class="markdownIt-Anchor" href="#jmp"></a> jmp</h2>
+<p>跳转指令</p>
+<p>ljmp - 长转移</p>
+<h2 id="伪指令"><a class="markdownIt-Anchor" href="#伪指令"></a> 伪指令</h2>
+<p>.xxxx</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.ascii</span> <span class="string">&quot;hello,world!&quot;</span></span><br></pre></td></tr></table></figure>
+
       </section>
 
       
       
-        <section class="page-link-container">
+        <nav class="article-nav">
           
-            <div class="link-item layout-padding">
-              <a href="https://blog.ctri.cc/" title="Qiyiming&#39;s Blog" class="content-padding--primary soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
-                
-                <img src="https://avatars.githubusercontent.com/u/54537867?v=4" alt="Qiyiming&#39;s Blog" class="soft-size--round soft-style--box">
-                
-                <div>
-                  <h4 class="text-ellipsis">Qiyiming&#39;s Blog</h4>
-                  
-                  <p class="text-ellipsis">一个摆烂程序员无聊的博客</p>
-                  
-                </div>
-              </a>
-            </div>
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2023/01/18/virtualbox-install-gentoo/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">VirtualBox 安装 Gentoo 笔记</h2>
+        </a>
+      
+      <div class="card-text--row">Newer</div>
+    </div>
+  </article>
+</div>
           
-            <div class="link-item layout-padding">
-              <a href="https://blog.nranp.com/" title="Nranphy&#39;s blog" class="content-padding--primary soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
-                
-                <img src="https://avatars.githubusercontent.com/u/30568146?v=4" alt="Nranphy&#39;s blog" class="soft-size--round soft-style--box">
-                
-                <div>
-                  <h4 class="text-ellipsis">Nranphy&#39;s blog</h4>
-                  
-                  <p class="text-ellipsis">文艺青年+可爱的男孩子</p>
-                  
-                </div>
-              </a>
-            </div>
           
-            <div class="link-item layout-padding">
-              <a href="https://ganganmix.github.io" title="肝肝与bugs" class="content-padding--primary soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
-                
-                <img src="https://avatars.githubusercontent.com/u/102890251?v=4" alt="肝肝与bugs" class="soft-size--round soft-style--box">
-                
-                <div>
-                  <h4 class="text-ellipsis">肝肝与bugs</h4>
-                  
-                  <p class="text-ellipsis">好朋友</p>
-                  
-                </div>
-              </a>
-            </div>
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2023/01/06/git-and-contribution/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">git 与 contribute 标准</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
           
-        </section>
+        </nav>
       
 
-      
-      
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
     </div>
     <div class="widget-info">
       <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -214,6 +261,8 @@
 
       
 
+      
+
       <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
   <div class="widget-title">
     <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -244,7 +293,6 @@
     </div>
   </article>
 </div>
-
 
     <!-- footer container -->
 <footer id="footer" class="footer">
