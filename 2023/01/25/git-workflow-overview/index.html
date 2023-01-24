@@ -24,7 +24,7 @@
 
   
 
-  <title>汇编基础笔记 | Bob&#39;s Blog</title>
+  <title>Git 工作流概述 | Bob&#39;s Blog</title>
 
   
 
@@ -104,17 +104,12 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">汇编基础笔记</h1>
+          <h1 class="title-wrap">Git 工作流概述</h1>
           <h2 class="title-sub-wrap">
             <strong>Bob Ying</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2023-01-11T09:31:50.000Z" itemprop="datePublished">2023-01-11</time>
+            <time  class="article-date" datetime="2023-01-24T16:16:10.000Z" itemprop="datePublished">2023-01-25</time>
           </h2>
-          
-            <h2 class="title-sub-wrap new-date">
-              <span>最后更新于</span>
-              <time  class="article-updated" datetime="2023-01-18T15:28:34.695Z" itemprop="dateUpdated">2023-01-18</time>
-            </h2>
           
           
           <ul class="wrap-list dark">
@@ -122,7 +117,9 @@
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/asm/">🏷️ asm</a></li>
+    <li><a href="/tags/git/">🏷️ git</a></li>
+  
+    <li><a href="/tags/contribution/">🏷️ contribution</a></li>
   
 </ul>
         </div>
@@ -146,33 +143,40 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="汇编基础"><a class="markdownIt-Anchor" href="#汇编基础"></a> 汇编基础</h1>
-<h2 id="mov"><a class="markdownIt-Anchor" href="#mov"></a> mov</h2>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov</span> x0, x1<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>将寄存器x1的值传递给寄存器x0</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">movb - <span class="built_in">byte</span> <span class="number">1</span>字节 <span class="number">8</span>位</span><br><span class="line">movw - <span class="built_in">word</span> <span class="number">2</span>字节 <span class="number">16</span>位</span><br><span class="line">movl - long <span class="number">4</span>字节 <span class="number">32</span>位</span><br><span class="line"><span class="keyword">movq</span> - quadword <span class="number">8</span>字节 <span class="number">64</span>位</span><br></pre></td></tr></table></figure>
-<h2 id="add"><a class="markdownIt-Anchor" href="#add"></a> add</h2>
-<p>顾名思义</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">add</span> x0, x1, x2<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>将寄存器x1和x2的内容相加, 并将结果存放载寄存器x0中</p>
-<h2 id="submul"><a class="markdownIt-Anchor" href="#submul"></a> sub/mul</h2>
-<p>顾名思义，语法同上</p>
-<h2 id="sdivudiv"><a class="markdownIt-Anchor" href="#sdivudiv"></a> sdiv/udiv</h2>
-<p>sdiv - signed divide</p>
-<p>udiv - unsigned divide</p>
-<h2 id="and"><a class="markdownIt-Anchor" href="#and"></a> and</h2>
-<p>与运算</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">and</span> x0, x0, #<span class="number">0xf</span></span><br></pre></td></tr></table></figure>
-<h2 id="or"><a class="markdownIt-Anchor" href="#or"></a> or</h2>
-<p>或运算</p>
-<h2 id="xor"><a class="markdownIt-Anchor" href="#xor"></a> xor</h2>
-<p>异或运算</p>
-<h2 id="jmp"><a class="markdownIt-Anchor" href="#jmp"></a> jmp</h2>
-<p>跳转指令</p>
-<p>ljmp - 长转移</p>
-<h2 id="伪指令"><a class="markdownIt-Anchor" href="#伪指令"></a> 伪指令</h2>
-<p>.xxxx</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.ascii</span> <span class="string">&quot;hello,world!&quot;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="git-工作流概述"><a class="markdownIt-Anchor" href="#git-工作流概述"></a> Git 工作流概述</h2>
+<h3 id="基础概述"><a class="markdownIt-Anchor" href="#基础概述"></a> 基础概述</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@remote.ip:&lt;remote&gt;</span><br></pre></td></tr></table></figure>
+<p>这时会出现一个 master 分支 请不要修改它</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b xxx-feat</span><br></pre></td></tr></table></figure>
+<p>切换到你的开发分支上</p>
+<p>可以开始修改你的代码了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure>
+<p>查看自己对代码作出的改变</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<p>上传到暂存区</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;message&quot;</span></span><br></pre></td></tr></table></figure>
+<p>将暂存区代码更新到 git</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin xxx-feat</span><br></pre></td></tr></table></figure>
+<p>上传到github</p>
+<h3 id="如果在写自己的代码过程中发现远端remote上代码出现改变"><a class="markdownIt-Anchor" href="#如果在写自己的代码过程中发现远端remote上代码出现改变"></a> 如果在写自己的代码过程中发现远端remote上代码出现改变</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
+<p>切换回 master 分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+<p>把远端仓库代码更新到本地</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout xxx-feat</span><br></pre></td></tr></table></figure>
+<p>切换回自己的开发分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase master</span><br></pre></td></tr></table></figure>
+<p>现在你在 xxx-feat 分支上，先把 master 移过来，然后根据你的commit 来修改成新的内容<br />
+（中途可能会出现，rebase conflict -----》手动选择保留哪段代码）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -f origin xxx</span><br></pre></td></tr></table></figure>
+<p>把rebase后并且更新过的代码再push到远端github上<br />
+（-f 强行）</p>
+<p>然后我pull request 中的 squash and merge 合并所有不同的commit</p>
+<h2 id="远端更新后"><a class="markdownIt-Anchor" href="#远端更新后"></a> 远端更新后</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d xxx-feat</span><br></pre></td></tr></table></figure>
+<p>删除本地分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+<p>最新代码拉回本地</p>
 
       </section>
 
@@ -180,28 +184,14 @@
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2023/01/18/virtualbox-install-gentoo/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">VirtualBox 安装 Gentoo 笔记</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2023/01/06/git-and-contribution/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">contribution.md 模板</h2>
+        <a href="/2023/01/18/axiom-of-choice/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">选择公理学习笔记</h2>
         </a>
       
       <div class="card-text--row">Older</div>
