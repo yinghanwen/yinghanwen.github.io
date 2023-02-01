@@ -24,7 +24,7 @@
 
   
 
-  <title>Bob&#39;s Blog</title>
+  <title>记录 Nonebot 第一次 PR 成功 | Bob&#39;s Blog</title>
 
   
 
@@ -51,7 +51,7 @@
   <div class="root-container">
     
 <!-- header container -->
-<header class="header-container">
+<header class="header-container post">
   
     <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
   
@@ -101,96 +101,93 @@
 
   
   
-
-  
-  
     <div class="header-content">
-      <div class="post-text layout-block layout-padding">
-        <h1 class="title-wrap"></h1>
-        
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">记录 Nonebot 第一次 PR 成功</h1>
+          <h2 class="title-sub-wrap">
+            <strong>Bob Ying</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2023-02-01T22:27:58.000Z" itemprop="datePublished">2023-02-02</time>
+          </h2>
+          
+          
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/tags/python/">🏷️ python</a></li>
+  
+    <li><a href="/tags/asyncio/">🏷️ asyncio</a></li>
+  
+    <li><a href="/tags/nonebot/">🏷️ nonebot</a></li>
+  
+</ul>
+        </div>
       </div>
     </div>
+  
+
+  
   
   
 </header>
 
-    <!-- 分页(其他自定义页面) -->
+    <!-- 文章 -->
 
-<!-- 自定义页面 -->
-
+<!-- 文章内容 -->
 <div class="body-container">
   <article class="content-container layout-block post-container">
     <div class="article-info">
       
+      
+      
+      
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        
+        <h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
+<p>某日突发奇想，自行手搓了一个机器人框架，开始写 OneBot V11 适配器时发现 nonebot2 的 adapter 有处写法很不雅，遂修改。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#nonebot/adapters/onebot/v11/message.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MessageSegment</span>(BaseMessageSegment[<span class="string">&quot;Message&quot;</span>]):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;OneBot v11 协议 MessageSegment 适配。具体方法参考协议消息段类型或源码。&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">      @staticmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">video</span>(<span class="params"></span></span><br><span class="line"><span class="params">        file: <span class="type">Union</span>[<span class="built_in">str</span>, <span class="built_in">bytes</span>, BytesIO, Path],</span></span><br><span class="line"><span class="params">        cache: <span class="type">Optional</span>[<span class="built_in">bool</span>] = <span class="literal">None</span>,</span></span><br><span class="line"><span class="params">        proxy: <span class="type">Optional</span>[<span class="built_in">bool</span>] = <span class="literal">None</span>,</span></span><br><span class="line"><span class="params">        timeout: <span class="type">Optional</span>[<span class="built_in">int</span>] = <span class="literal">None</span>,</span></span><br><span class="line"><span class="params">    </span>) -&gt; <span class="string">&quot;MessageSegment&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span> MessageSegment(</span><br><span class="line">            <span class="string">&quot;video&quot;</span>,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="string">&quot;file&quot;</span>: <span class="string">f&quot;base64://<span class="subst">&#123;b64encode(file).decode()&#125;</span>&quot;</span>, <span class="comment">#此处</span></span><br><span class="line">                <span class="string">&quot;cache&quot;</span>: b2s(cache),</span><br><span class="line">                <span class="string">&quot;proxy&quot;</span>: b2s(proxy),</span><br><span class="line">                <span class="string">&quot;timeout&quot;</span>: timeout,</span><br><span class="line">            &#125;,</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
+<p>于是我封装了一个转换文件类型数据的函数 <code>f2s</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#nonebot/adapters/onebot/utils.py</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"><span class="keyword">from</span> base64 <span class="keyword">import</span> b64encode</span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">Union</span>, <span class="type">Optional</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f2s</span>(<span class="params">file: <span class="type">Union</span>[<span class="built_in">str</span>, <span class="built_in">bytes</span>, BytesIO, Path]</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(file, BytesIO):</span><br><span class="line">        file = file.getvalue()</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(file, <span class="built_in">bytes</span>):</span><br><span class="line">        file = <span class="string">f&quot;base64://<span class="subst">&#123;b64encode(file).decode()&#125;</span>&quot;</span></span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">isinstance</span>(file, Path):</span><br><span class="line">        file = file.resolve().as_uri()</span><br><span class="line">    <span class="keyword">return</span> file</span><br></pre></td></tr></table></figure>
+<p>完</p>
+
       </section>
 
       
       
-        <section class="page-link-container">
+        <nav class="article-nav">
           
-            <div class="link-item layout-padding">
-              <a href="https://blog.mxgame.top" title="MingxuanGame&#39;s blog" class="content-padding--primary soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
-                
-                <img src="https://avatars.githubusercontent.com/u/68982190?v=4" alt="MingxuanGame&#39;s blog" class="soft-size--round soft-style--box">
-                
-                <div>
-                  <h4 class="text-ellipsis">MingxuanGame&#39;s blog</h4>
-                  
-                  <p class="text-ellipsis">Python 大佬 + Nonebot 插件开发者！</p>
-                  
-                </div>
-              </a>
-            </div>
           
-            <div class="link-item layout-padding">
-              <a href="https://blog.nranp.com/" title="Nranphy&#39;s blog" class="content-padding--primary soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
-                
-                <img src="https://avatars.githubusercontent.com/u/30568146?v=4" alt="Nranphy&#39;s blog" class="soft-size--round soft-style--box">
-                
-                <div>
-                  <h4 class="text-ellipsis">Nranphy&#39;s blog</h4>
-                  
-                  <p class="text-ellipsis">文艺又可爱的男孩子</p>
-                  
-                </div>
-              </a>
-            </div>
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2023/01/25/git-workflow-overview/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Git 工作流概述</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
           
-            <div class="link-item layout-padding">
-              <a href="https://ganganmix.github.io" title="肝肝与bugs" class="content-padding--primary soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
-                
-                <img src="https://avatars.githubusercontent.com/u/102890251?v=4" alt="肝肝与bugs" class="soft-size--round soft-style--box">
-                
-                <div>
-                  <h4 class="text-ellipsis">肝肝与bugs</h4>
-                  
-                  <p class="text-ellipsis">可爱的小佬</p>
-                  
-                </div>
-              </a>
-            </div>
-          
-            <div class="link-item layout-padding">
-              <a href="https://blog.kifuan.me" title="摸鱼中" class="content-padding--primary soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
-                
-                <img src="https://kifuan.me/avatar.jpg" alt="摸鱼中" class="soft-size--round soft-style--box">
-                
-                <div>
-                  <h4 class="text-ellipsis">摸鱼中</h4>
-                  
-                  <p class="text-ellipsis">随便写写，喜欢做点有趣的事情</p>
-                  
-                </div>
-              </a>
-            </div>
-          
-        </section>
+        </nav>
       
 
-      
-      
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
     </div>
     <div class="widget-info">
       <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -228,6 +225,8 @@
 
       
 
+      
+
       <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
   <div class="widget-title">
     <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -258,7 +257,6 @@
     </div>
   </article>
 </div>
-
 
     <!-- footer container -->
 <footer id="footer" class="footer">
